@@ -1,0 +1,42 @@
+
+C:\projects\Dox_2_DITA\batchfiles>set title="Saratoga API" 
+
+C:\projects\Dox_2_DITA\batchfiles>set ditamap=Saratoga_API 
+
+C:\projects\Dox_2_DITA\batchfiles>rmdir c:\out /s /q 
+
+C:\projects\Dox_2_DITA\batchfiles>mkdir c:\out 
+
+C:\projects\Dox_2_DITA\batchfiles>rmdir \in /s /q 
+
+C:\projects\Dox_2_DITA\batchfiles>mkdir \in 
+
+C:\projects\Dox_2_DITA\batchfiles>rmdir \out /s /q 
+
+C:\projects\Dox_2_DITA\batchfiles>mkdir \out 
+
+C:\projects\Dox_2_DITA\batchfiles>copy \Source\Saragtoga\html\*.svg \out\ /Y 
+The system cannot find the path specified.
+
+C:\projects\Dox_2_DITA\batchfiles>copy \depend\dtds\*.* \out\ /Y 
+The system cannot find the path specified.
+
+C:\projects\Dox_2_DITA\batchfiles>cd ..\ 
+
+C:\projects\Dox_2_DITA>set WORKINGDIR=C:\projects\Dox_2_DITA 
+
+C:\projects\Dox_2_DITA>java -jar C:\projects\Dox_2_DITA\saxonhe9-3-0-4j\saxon9he.jar  -o:C:\projects\Dox_2_DITA\in\index1.xml C:\projects\Dox_2_DITA\Source\Saratoga\xml\index.xml C:\projects\Dox_2_DITA\Source\Saratoga\xml\combine.xslt 
+Warning: at xsl:stylesheet on line 5 column 80 of combine.xslt:
+  Running an XSLT 1 stylesheet with an XSLT 2 processor
+Recoverable error on line 11 of combine.xslt:
+  FODC0002: I/O error reported by XML parser processing
+  file:/C:/projects/Dox_2_DITA/Source/Saratoga/xml/nt__api_8h.xml: Invalid byte 1 of 1-byte
+  UTF-8 sequence.
+Recoverable error on line 11 of combine.xslt:
+  FODC0002: I/O error reported by XML parser processing
+  file:/C:/projects/Dox_2_DITA/Source/Saratoga/xml/group___n_t.xml: Invalid byte 1 of 1-byte
+  UTF-8 sequence.
+
+C:\projects\Dox_2_DITA>java -jar C:\projects\Dox_2_DITA\saxonhe9-3-0-4j\saxon9he.jar  -o:C:\projects\Dox_2_DITA\in\index2.xml C:\projects\Dox_2_DITA\in\index1.xml C:\projects\Dox_2_DITA\depend\pmc_custom\process-heirarchy.xsl 
+
+C:\projects\Dox_2_DITA>java -jar C:\projects\Dox_2_DITA\saxonhe9-3-0-4j\saxon9he.jar  -o:C:\projects\Dox_2_DITA\in\index3.xml C:\projects\Dox_2_DITA\in\index2.xml C:\projects\Dox_2_DITA\depend\pmc_custom\create-heirarchy.xsl heading-level="1" 
